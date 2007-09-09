@@ -16,7 +16,7 @@ a simple PDF document viewer, in the lines of Evince but
 without using the Gnome libraries. 
 
 %prep
-%setup
+%setup -q
 
 %build
 %configure2_5x \
