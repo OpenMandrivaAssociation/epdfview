@@ -7,7 +7,6 @@ License:	GPL
 Source:		%{name}-%{version}.tar.bz2
 BuildRequires:	libpoppler-glib-devel
 BuildRequires:	libcups-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 ePDFView is a free lightweight PDF document viewer using 
