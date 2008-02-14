@@ -1,4 +1,4 @@
-Summary:	ePDFView is a simple and lightweight PDF viewer
+Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
 Version:	0.1.6
 Release:	%mkrel 2
