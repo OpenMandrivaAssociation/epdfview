@@ -1,11 +1,12 @@
 Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
 Version:	0.1.6
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Office
 License:	GPLv2+
 URL:		http://trac.emma-soft.com/epdfview/
 Source:		http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-0.1.6-fix-printing.patch
 BuildRequires:	libpoppler-glib-devel
 BuildRequires:	libcups-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -18,6 +19,7 @@ without using the Gnome libraries.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_5x \
