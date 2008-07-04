@@ -1,7 +1,7 @@
 Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
 Version:	0.1.6
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		Office
 License:	GPLv2+
 URL:		http://trac.emma-soft.com/epdfview/
@@ -32,7 +32,32 @@ without using the Gnome libraries.
 %install
 %makeinstall_std
 
+# (tpg) move icons to the right place
+for i in 24 32 48;do
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/"$i"x"$i"/apps
+mv %{buildroot}%{_datadir}/%{name}/pixmaps/icon_epdfview-$i.png %{buildroot}%{_iconsdir}/hicolor/"$i"x"$i"/apps/%{name}.png;
+done
+
+sed -i -e 's/^Icon=postscript-viewer.png$/Icon=%{name}/g' %{buildroot}%{_datadir}/applications/*
+
 %find_lang %{name}
+
+%clean
+rm -rf %{buildroot}
+
+%if %mdkversion < 200900
+%post
+%{update_menus}
+%{update_desktop_database}
+%update_icon_cache hicolor
+%endif
+
+%if %mdkversion < 200900
+%postun
+%{clean_menus}
+%{clean_desktop_database}
+%clean_icon_cache hicolor
+%endif
 
 %files -f %{name}.lang
 %defattr (-,root,root)
@@ -40,3 +65,4 @@ without using the Gnome libraries.
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/*
+%{_iconsdir}/hicolor/*/apps/*
