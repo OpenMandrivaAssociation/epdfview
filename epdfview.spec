@@ -1,7 +1,7 @@
 Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
 Version:	0.1.7
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		Office
 License:	GPLv2+
 URL:		http://trac.emma-soft.com/epdfview/
@@ -38,7 +38,7 @@ mkdir -p %{buildroot}%{_iconsdir}/hicolor/"$i"x"$i"/apps
 cp %{buildroot}%{_datadir}/%{name}/pixmaps/icon_epdfview-$i.png %{buildroot}%{_iconsdir}/hicolor/"$i"x"$i"/apps/%{name}.png;
 done
 
-sed -i -e 's/^Icon=icon_epdfview-48.png$/Icon=%{name}/g' %{buildroot}%{_datadir}/applications/*
+sed -i -e 's/^Icon=icon_epdfview-48$/Icon=%{name}/g' %{buildroot}%{_datadir}/applications/*
 
 %find_lang %{name}
 
