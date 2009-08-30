@@ -1,16 +1,19 @@
 Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
 Version:	0.1.7
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		Office
 License:	GPLv2+
 URL:		http://trac.emma-soft.com/epdfview/
 Source:		http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
 Patch2:		epdfview-0.1.6-format_not_a_string_literal_and_no_format_arguments.patch
+# (tpg) https://qa.mandriva.com/show_bug.cgi?id=51414
+Patch3:		epdfview-0.1.7-fix-mouse-scroll.patch
 BuildRequires:	libpoppler-glib-devel
 BuildRequires:	libcups-devel
 BuildRequires:	bison
 BuildRequires:	cppunit-devel
+Requires:	poppler
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
