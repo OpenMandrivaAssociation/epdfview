@@ -9,6 +9,7 @@ Source:		http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{versi
 Patch2:		epdfview-0.1.6-format_not_a_string_literal_and_no_format_arguments.patch
 # (tpg) https://qa.mandriva.com/show_bug.cgi?id=51414
 Patch3:		epdfview-0.1.7-fix-mouse-scroll.patch
+Patch4:		epdfview-0.1.7-poppler-0.16.0.patch
 BuildRequires:	libpoppler-glib-devel
 BuildRequires:	libcups-devel
 BuildRequires:	bison
@@ -25,14 +26,18 @@ without using the Gnome libraries.
 %prep
 %setup -q
 %patch2 -p1
+%patch4 -p0
 
 %build
+touch ChangeLog
+autoreconf -fi
 %configure2_5x \
 	--disable-rpath \
 	--with-cups
 %make
 
 %install
+rm -fr %buildroot
 %makeinstall_std
 
 # (tpg) move icons to the right place
