@@ -1,7 +1,7 @@
 Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
 Version:	0.1.7
-Release:	%mkrel 7
+Release:	%mkrel 8
 Group:		Office
 License:	GPLv2+
 URL:		http://trac.emma-soft.com/epdfview/
