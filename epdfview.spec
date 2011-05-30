@@ -1,15 +1,12 @@
 Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
-Version:	0.1.7
-Release:	%mkrel 8
+Version:	0.1.8
+Release:	%mkrel 1
 Group:		Office
 License:	GPLv2+
 URL:		http://trac.emma-soft.com/epdfview/
 Source:		http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
 Patch2:		epdfview-0.1.6-format_not_a_string_literal_and_no_format_arguments.patch
-# (tpg) https://qa.mandriva.com/show_bug.cgi?id=51414
-Patch3:		epdfview-0.1.7-fix-mouse-scroll.patch
-Patch4:		epdfview-0.1.7-poppler-0.16.0.patch
 BuildRequires:	libpoppler-glib-devel
 BuildRequires:	libcups-devel
 BuildRequires:	bison
@@ -26,11 +23,8 @@ without using the Gnome libraries.
 %prep
 %setup -q
 %patch2 -p1
-%patch4 -p0
 
 %build
-touch ChangeLog
-autoreconf -fi
 %configure2_5x \
 	--disable-rpath \
 	--with-cups
@@ -53,20 +47,6 @@ sed -i -e 's/^Icon=icon_epdfview-48$/Icon=%{name}/g' %{buildroot}%{_datadir}/app
 %clean
 rm -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%{update_desktop_database}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%{clean_desktop_database}
-%clean_icon_cache hicolor
-%endif
-
 %files -f %{name}.lang
 %defattr (-,root,root)
 %dir %{_datadir}/%{name}
@@ -74,3 +54,4 @@ rm -rf %{buildroot}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/%{name}/*
 %{_iconsdir}/hicolor/*/apps/*
+%{_mandir}/man1/epdfview.1.*
