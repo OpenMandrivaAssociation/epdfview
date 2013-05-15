@@ -1,13 +1,14 @@
 Summary:	Simple and lightweight PDF viewer
 Name:		epdfview
 Version:	0.1.8
-Release:	3
+Release:	4
 Group:		Office
 License:	GPLv2+
 URL:		http://trac.emma-soft.com/epdfview/
 Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
 Patch1:		epdfview-0.1.8_glibh.patch
 Patch2:		epdfview-0.1.6-format_not_a_string_literal_and_no_format_arguments.patch
+Patch3:		epdfview-0.1.8-bgra_to_rgba.patch
 
 BuildRequires:	bison
 BuildRequires:	cups-devel
