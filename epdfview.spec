@@ -9,7 +9,7 @@ Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{versi
 Patch1:		epdfview-0.1.8_glibh.patch
 Patch2:		epdfview-0.1.6-format_not_a_string_literal_and_no_format_arguments.patch
 Patch3:		epdfview-0.1.8-bgra_to_rgba.patch
-
+Patch4:		epdfview-0.1.8-cups-1.6.patch
 BuildRequires:	bison
 BuildRequires:	cups-devel
 BuildRequires:	pkgconfig(cppunit)
