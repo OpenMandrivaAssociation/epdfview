@@ -34,7 +34,7 @@ in the lines of Evince but without using the Gnome libraries.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure2_5x \
