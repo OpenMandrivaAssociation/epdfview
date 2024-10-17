@@ -4,7 +4,7 @@ Version:	0.1.8
 Release:	6
 License:	GPLv2+
 Group:		Office
-Url:		http://trac.emma-soft.com/epdfview/
+Url:		https://trac.emma-soft.com/epdfview/
 Source0:	http://trac.emma-soft.com/epdfview/chrome/site/releases/%{name}-%{version}.tar.bz2
 Patch1:		epdfview-0.1.8_glibh.patch
 Patch2:		epdfview-0.1.6-format_not_a_string_literal_and_no_format_arguments.patch
